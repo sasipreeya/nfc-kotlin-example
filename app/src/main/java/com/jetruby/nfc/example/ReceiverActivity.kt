@@ -31,18 +31,18 @@ class ReceiverActivity : AppCompatActivity() {
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
-        if (!isNfcSupported) {
-            Toast.makeText(this, "Nfc is not supported on this device", Toast.LENGTH_SHORT).show()
-            finish()
-        }
-
-        if (!nfcAdapter!!.isEnabled) {
-            Toast.makeText(
-                this,
-                "NFC disabled on this device. Turn on to proceed",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+//        if (!isNfcSupported) {
+//            Toast.makeText(this, "Nfc is not supported on this device", Toast.LENGTH_SHORT).show()
+//            finish()
+//        }
+//
+//        if (!nfcAdapter!!.isEnabled) {
+//            Toast.makeText(
+//                this,
+//                "NFC disabled on this device. Turn on to proceed",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
 
         initViews()
     }
