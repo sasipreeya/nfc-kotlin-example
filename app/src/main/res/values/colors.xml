@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <!-- Themes -->
+    <color name="colorPrimary">@color/scb_purple</color>
+    <color name="colorPrimaryDark">@color/dark_purple</color>
+    <color name="colorAccent">@color/scb_purple</color>
+
+    <color name="secondaryColorPrimary">@color/white</color>
+    <color name="secondaryColorPrimaryDark">@color/light_gray</color>
+    <color name="secondaryColorAccent">@color/white</color>
+
+    <!-- Styleguide -->
+
+    <!-- Accent -->
+    <color name="scb_purple">#7631C1</color>
+    <color name="scb_purple_alpha_20">#667631C1</color>
+    <color name="scb_light_purple">#E4D6F3</color>
+    <color name="scb_purple_alpha_60">#994C2E85</color>
+    <color name="scb_yellow">#F3BB40</color>
+    <color name="dark_purple">#4F2A81</color>
+    <color name="dark_purple_alpha_40">#664F2A81</color>
+
+    <!-- Interface -->
+    <color name="fake_black">#353239</color>
+    <color name="fake_black_alpha_85">#D8353239</color>
+    <color name="fake_black_alpha_40">#6621262C</color>
+    <color name="fake_black_alpha_30">#4D21262C</color>
+    <color name="black_alpha_10">#1A000000</color>
+    <color name="black_alpha_30">#4D000000</color>
+    <color name="dark_gray">#736E78</color>
+    <color name="gray_darker">#827D87</color>
+    <color name="gray">#959199</color>
+    <color name="light_gray">#C9C6CD</color>
+    <color name="light_gray_alpha_40">#66C9C6CD</color>
+    <color name="lighter_gray">#EAE7EC</color>
+    <color name="fake_white">#F5F3F6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_alpha_40">#66FFFFFF</color>
+    <color name="white_alpha_60">#99FFFFFF</color>
+    <color name="white_alpha_75">#BFFFFFFF</color>
+    <color name="white_alpha_90">#E6FFFFFF</color>
+    <color name="fake_white_alpha_40">#66F5F3F6</color>
+    <color name="dark_gray_accent">#454249</color>
+
+    <!-- Messaging -->
+    <color name="insights">#4A90E2</color>
+    <color name="success">#00603F</color>
+    <color name="light_green">#06BF59</color>
+    <color name="warning">#FFEAA8</color>
+    <color name="warm_yellow">#F3B32A</color>
+    <color name="error">#DA2E36</color>
+    <color name="light_red">#F15353</color>
+    <color name="red">#F05F61</color>
+    <color name="red_alpha_20">#33f05f61</color>
+
+    <!-- Out of styleguid colors -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="black80">#cd000000</color>
+    <color name="black_transparent">#a6000000</color>
+    <color name="black_transparent_alpha75">#75000000</color>
+
+    <!-- InvestmentDetail piechart -->
+    <color name="in_light_green">#00DBC5</color>
+    <color name="in_yellow">#FFCA00</color>
+    <color name="in_light_blue">#AEA1FF</color>
+    <color name="in_dark_blue">#7628C4</color>
+    <color name="in_red">#E82F6B</color>
+
+    <!-- InvestmentDetail risk expiry date -->
+    <color name="risk_green">#00CB56</color>
+    <color name="risk_yellow">#F7BF00</color>
+    <color name="risk_red">#F44D5D</color>
+    <color name="yellow">#FEAC00</color>
+
+    <!-- Calendar -->
+    <color name="light_purple">#FFBCA0DC</color>
+
+    <!-- Unsecured Landing -->
+    <color name="text_color">#7631C1</color>
+    <color name="dialog_text_color">#736E78</color>
+
+    <!-- QR Belt -->
+    <color name="belt_gray">#FF787878</color>
+
+    <!-- Scan -->
+    <color name="bottom_bar_background">#80000000</color>
+
+    <!-- Qr -->
+    <color name="relative_qr_background">#FF00427A</color>
+
+    <color name="grey">#837E87</color>
+
+    <!-- Profile management -->
+    <color name="dark_red">#D0021B</color>
+    <color name="empty_accounts_red">#f2dede</color>
+
+    <!-- NTB -->
+    <color name="ntb_image_background_coach_mark">#716F74</color>
+
+    <color name="order_cheque_contact">#4A90E2</color>
+
+    <!-- Bill payment -->
+    <color name="disabled_text_grey">#A8A4AC</color>
+
+    <!-- PromptPay -->
+
+    <color name="light_grey">#A8A4AC</color>
+    <color name="dark_unlink_red">#af252e</color>
+
+    <!-- SCBS -->
+
+    <color name="scbs_investment_grey">#DFDEE0</color>
+    <color name="scbs_other_investment_blue">#C4D7EC</color>
+    <color name="scbs_green">#06BF59</color>
+
+    <!-- Merchant shop -->
+    <color name="mw_success_green">#FF06BF59</color>
+    <color name="mw_gray_icon">#353239</color>
+
+    <!-- Additional document -->
+    <color name="crop_document_green">#9900BC50</color>
+    <color name="detect_document_green">#00BC50</color>
+
+    <!-- Cardless -->
+    <color name="new_badge_red">#E33535</color>
+
+    <!-- DISCOVER -->
+    <color name="discover_grey">#736E68</color>
+
+    <color name="justforyou_profile_border_active_low">#FF8F45</color>
+    <color name="justforyou_profile_border_active_medium">#FE6669</color>
+    <color name="justforyou_profile_border_active_high">#FA3658</color>
+
+    <color name="justforyou_profile_border_inactive_low">#DDDCDF</color>
+    <color name="justforyou_profile_border_inactive_medium">#CFCDD1</color>
+    <color name="justforyou_profile_border_inactive_high">#A8A4AC</color>
+
+    <color name="justforyou_spending_background_morning_top">#7631C1</color>
+    <color name="justforyou_spending_background_morning_bottom">#FFB344</color>
+    <color name="justforyou_spending_background_day_top">#7631C1</color>
+    <color name="justforyou_spending_background_day_bottom">#48D9FF</color>
+    <color name="justforyou_spending_background_evening_top">#7631C1</color>
+    <color name="justforyou_spending_background_evening_bottom">#0C1632</color>
+    <color name="justforyou_spending_background_default">#7631C1</color>
+
+    <color name="justforyou_spending_average_gauge_start_color">#1AFFFFFF</color>
+    <color name="justforyou_spending_average_gauge_end_color">@color/white</color>
+    <color name="justforyou_spending_categories_end_circle_outer_color">@color/white</color>
+    <color name="justforyou_spending_categories_end_circle_inner_color">#FC7C89</color>
+    <color name="justforyou_spending_average_end_circle_outer_color">#00FFFFFF</color>
+    <color name="justforyou_spending_average_end_circle_inner_color">@color/white</color>
+
+    <!-- SUBMISSION -->
+    <color name="submission_dark_grey">#030303</color>
+    <color name="crop_grey">#9B9B9B</color>
+
 </resources>
