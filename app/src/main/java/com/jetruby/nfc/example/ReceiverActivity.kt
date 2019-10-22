@@ -4,26 +4,19 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.content.IntentFilter
 import android.nfc.NdefMessage
-import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.os.Bundle
-import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 
 const val MIME_TEXT_PLAIN = "text/plain"
 
 class ReceiverActivity : AppCompatActivity() {
 
     private var tvIncomingMessage: TextView? = null
-
+    private var transferButton: Button? = null
     private var nfcAdapter: NfcAdapter? = null
-
-    // need to check NfcAdapter for nullability. Null means no NFC support on the device
-    private val isNfcSupported: Boolean =
-        this.nfcAdapter != null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,37 +24,21 @@ class ReceiverActivity : AppCompatActivity() {
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
-//        if (!isNfcSupported) {
-//            Toast.makeText(this, "Nfc is not supported on this device", Toast.LENGTH_SHORT).show()
-//            finish()
-//        }
-//
-//        if (!nfcAdapter!!.isEnabled) {
-//            Toast.makeText(
-//                this,
-//                "NFC disabled on this device. Turn on to proceed",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-
         initViews()
     }
 
     private fun initViews() {
         this.tvIncomingMessage = findViewById(R.id.tv_in_message)
+        this.transferButton = findViewById(R.id.transfer_btn)
     }
 
     override fun onNewIntent(intent: Intent) {
-        // also reading NFC message from here in case this activity is already started in order
-        // not to start another instance of this activity
         receiveMessageFromDevice(intent)
     }
 
     override fun onResume() {
         super.onResume()
 
-        // foreground dispatch should be enabled here, as onResume is the guaranteed place where app
-        // is in the foreground
         enableForegroundDispatch(this, this.nfcAdapter)
         receiveMessageFromDevice(intent)
     }
@@ -84,27 +61,13 @@ class ReceiverActivity : AppCompatActivity() {
                 tvIncomingMessage?.text = inMessage
             }
         }
+
+        transferButton!!.setOnClickListener {
+            val intent = Intent(applicationContext, SlipActivity::class.java)
+        }
     }
 
-
-    // Foreground dispatch holds the highest priority for capturing NFC intents
-    // then go activities with these intent filters:
-    // 1) ACTION_NDEF_DISCOVERED
-    // 2) ACTION_TECH_DISCOVERED
-    // 3) ACTION_TAG_DISCOVERED
-
-    // always try to match the one with the highest priority, cause ACTION_TAG_DISCOVERED is the most
-    // general case and might be intercepted by some other apps installed on your device as well
-
-    // When several apps can match the same intent Android OS will bring up an app chooser dialog
-    // which is undesirable, because user will most likely have to move his device from the tag or another
-    // NFC device thus breaking a connection, as it's a short range
-
     private fun enableForegroundDispatch(activity: AppCompatActivity, adapter: NfcAdapter?) {
-
-        // here we are setting up receiving activity for a foreground dispatch
-        // thus if activity is already started it will take precedence over any other activity or app
-        // with the same intent filters
 
         val intent = Intent(activity.applicationContext, activity.javaClass)
         intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP

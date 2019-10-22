@@ -19,9 +19,6 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
     private var nfcAdapter: NfcAdapter? = null
 
-    private val isNfcSupported: Boolean =
-        this.nfcAdapter != null
-
     private lateinit var outcomingNfcCallback: OutcomingNfcManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,22 +27,9 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
-//        if (!isNfcSupported) {
-//            Toast.makeText(this, "Nfc is not supported on this device", Toast.LENGTH_SHORT).show()
-//            finish()
-//        }
-//
-//        if (!nfcAdapter?.isEnabled!!) {
-//            Toast.makeText(
-//                this,
-//                "NFC disabled on this device. Turn on to proceed",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-
         initViews()
+        setOutGoingMessage()
 
-        // encapsulate sending logic in a separate class
         this.outcomingNfcCallback = OutcomingNfcManager(this)
         this.nfcAdapter?.setOnNdefPushCompleteCallback(outcomingNfcCallback, this)
         this.nfcAdapter?.setNdefPushMessageCallback(outcomingNfcCallback, this)
@@ -63,7 +47,8 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
     }
 
     private fun setOutGoingMessage() {
-        val outMessage = this.etOutcomingMessage.text.toString()
+        // val outMessage = this.etOutcomingMessage.text.toString()
+        val outMessage = "SCB Fast Easy Banking"
         this.tvOutcomingMessage.text = outMessage
     }
 
@@ -72,9 +57,6 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
 
     override fun signalResult() {
-        // this will be triggered when NFC message is sent to a device.
-        // should be triggered on UI thread. We specify it explicitly
-        // cause onNdefPushComplete is called from the Binder thread
         runOnUiThread {
             Toast.makeText(this, R.string.message_beaming_complete, Toast.LENGTH_SHORT).show()
         }
