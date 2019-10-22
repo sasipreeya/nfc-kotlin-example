@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_receiver.*
 
 const val MIME_TEXT_PLAIN = "text/plain"
 
@@ -17,6 +18,7 @@ class ReceiverActivity : AppCompatActivity() {
     private var tvIncomingMessage: TextView? = null
     private var transferButton: Button? = null
     private var nfcAdapter: NfcAdapter? = null
+    private lateinit var name :String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,12 +60,17 @@ class ReceiverActivity : AppCompatActivity() {
                 val ndefRecord_0 = inNdefRecords[0]
 
                 val inMessage = String(ndefRecord_0.payload)
+                name = inMessage
                 tvIncomingMessage?.text = inMessage
             }
         }
 
         transferButton!!.setOnClickListener {
-            val intent = Intent(applicationContext, SlipActivity::class.java)
+            val intent = Intent(this, SlipActivity::class.java)
+            val amount = et_message?.text.toString()
+            intent.putExtra("name",name)
+            intent.putExtra("amount",amount)
+            startActivity(intent)
         }
     }
 

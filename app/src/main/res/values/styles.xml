@@ -7,5 +7,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="TextFakeBlack24Regular">
+        <item name="android:textColor">@color/fake_black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextFakeBlack20Medium">
+        <item name="android:textColor">@color/fake_black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 
 </resources>

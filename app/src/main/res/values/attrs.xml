@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="serviceTileBackground" format="reference" />
+    <attr name="serviceTileText" format="string" />
+    <attr name="qrBeltVisibility" format="integer" />
+    <attr name="bottomBarTabBackground" format="reference" />
+    <attr name="bottomBarTabActiveColor" format="reference" />
+    <attr name="headerBackground" format="reference" />
+    <attr name="landingWelcomeTextStyle" format="reference" />
+    <attr name="landingNameTextStyle" format="reference" />
+    <attr name="landingCityTextStyle" format="reference" />
+    <attr name="moneyMovementBackground" format="reference" />
+    <attr name="profilePlaceholder" format="reference" />
+
+    <declare-styleable name="ScbTextInputLayout">
+        <attr name="scb_titleText" format="string" localization="suggested" />
+        <attr name="scb_titleTextStyle" format="reference" />
+        <attr name="scb_titleTextFont" format="string" />
+        <attr name="scb_errorText" format="string" localization="suggested" />
+        <attr name="scb_errorTextStyle" format="reference" />
+        <attr name="scb_errorTextFont" format="string" />
+        <attr name="scb_errorEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="EditTextDecorator">
+        <attr name="scb_labelText" format="string" localization="suggested" />
+        <attr name="scb_errorLabelText" format="string" localization="suggested" />
+        <attr name="scb_maxCounterText" format="integer" localization="suggested" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageTextView">
+        <attr name="logoSize" format="dimension" />
+        <attr name="logoHeight" format="dimension" />
+        <attr name="logoWidth" format="dimension" />
+        <attr name="logoSpacingSize" format="dimension" />
+        <attr name="adjustIconBounds" format="boolean" />
+        <attr name="text" format="string" localization="suggested" />
+        <attr name="image" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RecentTransactionLayout">
+        <attr name="dateText" format="string" localization="suggested" />
+        <attr name="valueText" format="string" localization="suggested" />
+        <attr name="valueTextColor" format="color" />
+        <attr name="showBorder" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomIdpTitleWithLabelView">
+        <attr name="idp_label" format="string" localization="suggested" />
+        <attr name="idp_value" format="string" localization="suggested" />
+    </declare-styleable>
+
+    <declare-styleable name="ScheduledPaymentLayout">
+        <attr name="currency" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="EllipsizeTextView">
+        <attr name="ellipsize_text" format="string|reference" />
+        <attr name="ellipsize_index" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomEasyCashLoanInformationCard">
+        <attr name="loanImgSize" format="dimension" />
+        <attr name="loanText" format="string" localization="suggested" />
+        <attr name="loanImage" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomProfileImageView">
+        <attr name="src" format="reference" />
+        <attr name="outerActiveColors" format="reference" />
+        <attr name="outerInactiveColors" format="reference" />
+        <attr name="innerColors" format="reference" />
+        <attr name="imageWidth" format="dimension" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="animationDuration" format="integer" />
+
+        <attr name="borderState" format="enum">
+            <enum name="no_border" value="0" />
+            <enum name="inactive" value="1" />
+            <enum name="active" value="2" />
+            <enum name="active_animation" value="3" />
+            <enum name="inactive_animation" value="4" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="GaugeView">
+        <attr name="gaugePointSize" format="integer" />
+        <attr name="gaugePointStartColor" format="color" />
+        <attr name="gaugePointEndColor" format="color" />
+        <attr name="gaugeStrokeColor" format="color" />
+        <attr name="gaugeStrokeWidth" format="dimension" />
+        <attr name="gaugeStrokeCap" format="string" />
+        <attr name="gaugeStartAngle" format="float" />
+        <attr name="gaugeSweepAngle" format="float" />
+        <attr name="gaugeStartValue" format="integer" />
+        <attr name="gaugeEndValue" format="integer" />
+        <attr name="gaugeEndWithCircle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="JustForYouGaugeView">
+        <attr name="size" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+    </declare-styleable>
+</resources>

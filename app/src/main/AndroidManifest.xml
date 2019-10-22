@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.jetruby.nfc.example">
 
     <uses-permission android:name="android.permission.NFC" />
@@ -21,7 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SenderActivity">
+        <activity android:name=".SenderActivity"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,5 +42,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-feature android:name="android.hardware.nfc" />
+
+    <uses-permission android:name="android.permission.NFC" />
 
 </manifest>
