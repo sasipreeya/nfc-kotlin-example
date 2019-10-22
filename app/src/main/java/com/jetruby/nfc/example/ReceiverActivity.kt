@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_receiver.*
 
 const val MIME_TEXT_PLAIN = "text/plain"
@@ -66,11 +67,15 @@ class ReceiverActivity : AppCompatActivity() {
         }
 
         transferButton!!.setOnClickListener {
-            val intent = Intent(this, SlipActivity::class.java)
             val amount = et_message?.text.toString()
-            intent.putExtra("name",name)
-            intent.putExtra("amount",amount)
-            startActivity(intent)
+            if (amount.isNullOrEmpty() || amount == "."){
+                Toast.makeText(this@ReceiverActivity, "กรุณาระบุจำนวนเงินให้ถูกต้อง", Toast.LENGTH_SHORT).show()
+            }else{
+                val intent = Intent(this, SlipActivity::class.java)
+                intent.putExtra("name",name)
+                intent.putExtra("amount",amount)
+                startActivity(intent)
+            }
         }
     }
 
