@@ -7,13 +7,23 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="TextFakeBlack24Regular">
         <item name="android:textColor">@color/fake_black</item>
         <item name="android:textSize">24sp</item>
     </style>
+
     <style name="TextFakeBlack20Medium">
         <item name="android:textColor">@color/fake_black</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="PrimaryButtonStyle" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
 </resources>
