@@ -20,6 +20,7 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
     private var nfcAdapter: NfcAdapter? = null
 
     private lateinit var outcomingNfcCallback: OutcomingNfcManager
+    private lateinit var outMessage : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
-        initViews()
+//        initViews()
         setOutGoingMessage()
 
         this.outcomingNfcCallback = OutcomingNfcManager(this)
@@ -48,12 +49,13 @@ class SenderActivity : AppCompatActivity(), OutcomingNfcManager.NfcActivity {
 
     private fun setOutGoingMessage() {
         // val outMessage = this.etOutcomingMessage.text.toString()
-        val outMessage = "SCB Fast Easy Banking"
-        this.tvOutcomingMessage.text = outMessage
+        outMessage = "SCB Fast Easy Banking"
+//        this.tvOutcomingMessage.text = outMessage
+
     }
 
     override fun getOutcomingMessage(): String =
-        this.tvOutcomingMessage.text.toString()
+        this.outMessage
 
 
     override fun signalResult() {

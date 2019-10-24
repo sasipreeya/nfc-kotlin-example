@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.jetruby.nfc.example">
 
-    <uses-permission android:name="android.permission.NFC" />
-
-    <uses-feature android:name="android.hardware.nfc" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,21 +12,19 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".SlipActivity"></activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SenderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ReceiverActivity">
+        <activity
+            android:name=".SenderActivity"
+            android:parentActivityName=".Launcher" />
+        <activity
+            android:name=".ReceiverActivity"
+            android:parentActivityName=".Launcher">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
@@ -39,7 +33,14 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name=".nfc.WaitingNFCActivity"/>
+        <activity
+            android:parentActivityName=".Launcher"
+            android:name=".nfc.NFCSenderActivity"/>
+        <activity android:name=".view.custom.TransferActivity"/>
     </application>
+
+    <uses-feature android:name="android.hardware.nfc" />
+
+    <uses-permission android:name="android.permission.NFC" />
 
 </manifest>

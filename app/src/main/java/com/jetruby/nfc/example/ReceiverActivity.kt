@@ -9,11 +9,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import com.jetruby.nfc.example.view.custom.TransferActivity
 
 const val MIME_TEXT_PLAIN = "text/plain"
 
 class ReceiverActivity : AppCompatActivity() {
-
+    companion object {
+        const val USERID = "userid"
+    }
     private var tvIncomingMessage: TextView? = null
     private var transferButton: Button? = null
     private var nfcAdapter: NfcAdapter? = null
@@ -24,7 +27,7 @@ class ReceiverActivity : AppCompatActivity() {
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
-        initViews()
+//        initViews()
     }
 
     private fun initViews() {
@@ -59,12 +62,13 @@ class ReceiverActivity : AppCompatActivity() {
 
                 val inMessage = String(ndefRecord_0.payload)
                 tvIncomingMessage?.text = inMessage
+                changeActivity(inMessage)
             }
         }
 
-        transferButton!!.setOnClickListener {
-            val intent = Intent(applicationContext, SlipActivity::class.java)
-        }
+//        transferButton!!.setOnClickListener {
+//            val intent = Intent(applicationContext, SlipActivity::class.java)
+//        }
     }
 
     private fun enableForegroundDispatch(activity: AppCompatActivity, adapter: NfcAdapter?) {
@@ -93,5 +97,11 @@ class ReceiverActivity : AppCompatActivity() {
 
     private fun disableForegroundDispatch(activity: AppCompatActivity, adapter: NfcAdapter?) {
         adapter?.disableForegroundDispatch(activity)
+    }
+
+    private fun changeActivity(id : String) {
+        val intent = Intent(this, TransferActivity::class.java)
+        intent.putExtra(USERID, id)
+        startActivity(intent)
     }
 }

@@ -156,4 +156,6 @@
     <color name="submission_dark_grey">#030303</color>
     <color name="crop_grey">#9B9B9B</color>
 
+    <color name="confirmation_green">#06BF59</color>
+
 </resources>
