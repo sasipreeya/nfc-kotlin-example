@@ -17,7 +17,7 @@ class SlipActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.textView)
         val productName = findViewById<TextView>(R.id.txv_product_name)
 
-        val amount:String = intent.getStringExtra("amount")
+        val amount:String = intent.getStringExtra(AMOUNT)
         description.text = " Item code: 00903 / Qty: 1"
         cardNumber.text = "xxx-xxxx-589"
         cardType.text = "นายหนึ่ง สองสามสี่"

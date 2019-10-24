@@ -6,34 +6,32 @@ import android.content.IntentFilter
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.os.Bundle
+import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import com.jetruby.nfc.example.view.custom.TransferActivity
 
 const val MIME_TEXT_PLAIN = "text/plain"
 
 class ReceiverActivity : AppCompatActivity() {
-    companion object {
-        const val USERID = "userid"
-    }
+
     private var tvIncomingMessage: TextView? = null
     private var transferButton: Button? = null
     private var nfcAdapter: NfcAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_receiver)
+        setContentView(R.layout.activity_wait_for_nfc)
 
         this.nfcAdapter = NfcAdapter.getDefaultAdapter(this)?.let { it }
 
 //        initViews()
     }
 
-    private fun initViews() {
-        this.tvIncomingMessage = findViewById(R.id.tv_in_message)
-        this.transferButton = findViewById(R.id.transfer_btn)
-    }
+//    private fun initViews() {
+//        this.tvIncomingMessage = findViewById(R.id.tv_in_message)
+//        this.transferButton = findViewById(R.id.transfer_btn)
+//    }
 
     override fun onNewIntent(intent: Intent) {
         receiveMessageFromDevice(intent)
@@ -62,13 +60,10 @@ class ReceiverActivity : AppCompatActivity() {
 
                 val inMessage = String(ndefRecord_0.payload)
                 tvIncomingMessage?.text = inMessage
+                sendBroadcastMessage(inMessage)
                 changeActivity(inMessage)
             }
         }
-
-//        transferButton!!.setOnClickListener {
-//            val intent = Intent(applicationContext, SlipActivity::class.java)
-//        }
     }
 
     private fun enableForegroundDispatch(activity: AppCompatActivity, adapter: NfcAdapter?) {
@@ -99,9 +94,16 @@ class ReceiverActivity : AppCompatActivity() {
         adapter?.disableForegroundDispatch(activity)
     }
 
+    private fun sendBroadcastMessage(content: String) {
+        Intent(RECEIVED_USERID).let {
+            it.putExtra(USERID, content)
+            LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(it)
+        }
+    }
+
     private fun changeActivity(id : String) {
         val intent = Intent(this, TransferActivity::class.java)
-        intent.putExtra(USERID, id)
+        intent.putExtra(ID, id)
         startActivity(intent)
     }
 }

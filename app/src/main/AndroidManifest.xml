@@ -11,9 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SlipActivity"></activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Launcher">
+        <activity
+            android:name=".SlipActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,26 +22,21 @@
         </activity>
         <activity
             android:name=".SenderActivity"
-            android:parentActivityName=".Launcher" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ReceiverActivity"
-            android:parentActivityName=".Launcher">
+            android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
         <activity
-            android:parentActivityName=".Launcher"
-            android:name=".nfc.NFCSenderActivity"/>
-        <activity android:name=".view.custom.TransferActivity"/>
+            android:name=".TransferActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
-
     <uses-feature android:name="android.hardware.nfc" />
 
     <uses-permission android:name="android.permission.NFC" />
-
 </manifest>
